@@ -11,6 +11,7 @@
             <% blogs.forEach(blogContent => { %>
                 <h3><%= blogContent.title %></h3>
                 <p><%= blogContent.snippet %></p>
+                <small><%= blogContent.createdAt %></small>
             <% }) %>
         <% } else { %>
             <h3>No blogs for now</h3>
