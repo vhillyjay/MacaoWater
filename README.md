@@ -9,7 +9,7 @@
    4. Click the Database tab again. You can see the created cluster. Click Browse Collections. Click Add My Own Data.
    5. Fill up the Database name and Collection name. Click Create.
    6. On the Database Access tab. Click Add New Database User. Fill up the pw.
-   7. Go back to Database tab. Click Connect. Choose Allow Access from Anywhere. Click Connect your Application. Copy the Connection String and paste it on your app. Modify the pw to the correct pw you created.
+   7. Go back to Database tab. Click Connect. Choose Allow Access from Anywhere. Click Connect your Application. Copy the Connection String and paste it on your app. Modify the pw to the correct pw you created and the name of the database in the URI.
    
    
    
