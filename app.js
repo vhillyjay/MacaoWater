@@ -20,6 +20,9 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about', { title: 'About' });
 });
+app.get('/blogs/create', (req, res) => {
+    res.render('create', { title: 'Create' });
+});
 app.get('/blogs', (req, res) => {
     Blog.find().sort({ createdAt: -1})
         .then((result) => {
@@ -48,9 +51,6 @@ app.get('/blogs/:id', (req, res) => {
         .catch((err) => {
             console.log(err);
         })
-});
-app.get('/blogs/create', (req, res) => {
-    res.render('create', { title: 'Create' });
 });
 app.use((req, res) => {
     res.status(404).render('404', { title: '404' });
