@@ -9,9 +9,11 @@
 
         <% if (blogs.length > 0) { %>
             <% blogs.forEach(blogContent => { %>
-                <h3><%= blogContent.title %></h3>
-                <p><%= blogContent.snippet %></p>
-                <small><%= blogContent.createdAt %></small>
+                <a class="single" href="/blogs/<%= blogContent._id %>">
+                    <h3><%= blogContent.title %></h3>
+                    <p><%= blogContent.snippet %></p>
+                    <small><%= blogContent.createdAt %></small>
+                </a>
             <% }) %>
         <% } else { %>
             <h3>No blogs for now</h3>
