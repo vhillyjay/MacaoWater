@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head.ejs') %> 
+<%- include('../partials/head.ejs') %> 
 <body>
-    <%- include('./partials/nav.ejs') %> 
+    <%- include('../partials/nav.ejs') %> 
 
     <div class="details content">
         <h2>Blog Details - <%= blogs.title %></h2>
@@ -16,7 +16,7 @@
             trialDelete Blog using get method
     </a>
 
-    <%- include('./partials/footer.ejs') %>
+    <%- include('../partials/footer.ejs') %>
 
     <script>
         const deleteProcess = document.querySelector('a.delete');
