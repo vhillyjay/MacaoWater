@@ -12,5 +12,6 @@ router.delete('/blogs/:id', blogController.blog_delete);
 router.get('/blogsdelete/:id', blogController.blog_delete_trial_get);
 // trial delete using get request
 router.get('/blogs/:id/update', blogController.blog_update_get);
+router.post('/blogs/:id/update', blogController.blog_update_post);
 
 module.exports = router;
