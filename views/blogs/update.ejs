@@ -1,0 +1,29 @@
+update
+
+<h2>Blog Details - <%= blogs._id %></h2>
+<p>title <%= blogs.title %></p>
+<p>snippet <%= blogs.snippet %></p>
+<p>body <%= blogs.body %></p>
+
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/nav.ejs') %> 
+
+    <div class="create-blog content">
+        <form action="" method="POST"> 
+            <label for="title">Blog title:</label>
+            <input type="text" id="title" name="title" value="<%= blogs.title %>" required>
+            <label for="snippet">Blog snippet:</label>
+            <input type="text" id="snippet" name="snippet" value="<%= blogs.snippet %>" required>
+            <label for="body">Blog body:</label>
+            <textarea id="body" name="body" value="<%= blogs.body %>" required></textarea>
+            <button>Submit</button>
+        </form>
+    </div>
+    <!-- will throw 404 at the time coz route and form action not yet fixed -->
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>
