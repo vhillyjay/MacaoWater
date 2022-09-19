@@ -5,8 +5,12 @@ const Blog = require('./models/blog');
 const app = express();
 const dbURI = 'mongodb+srv://admin123:admin123@macaowater.j7ykk8y.mongodb.net/macaowater?retryWrites=true&w=majority';
 mongoose.connect(dbURI)
-    .then((result) => { app.listen(3000); })
-    .catch((err) => { console.log(err) }); 
+    .then((result) => { 
+        app.listen(3000); 
+    })
+    .catch((err) => { 
+        console.log(err) 
+    }); 
 // if deprecation warning shows. 2nd parameter for mongoose.connect {useNewUrlParser: true, useUnifiedTopology: true}
 
 app.set('view engine', 'ejs');
@@ -51,6 +55,18 @@ app.get('/blogs/:id', (req, res) => {
         .catch((err) => {
             console.log(err);
         })
+});
+app.delete('/blogs/:id', (req, res) => {
+    const id = req.params.id;
+    Blog.findByIdAndDelete(id)
+        .then((result) => {
+            res.json({
+                redirect: '/blogs',
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 });
 app.use((req, res) => {
     res.status(404).render('404', { title: '404' });

@@ -10,7 +10,30 @@
             <p><%= blogs.body %></p>
         </div>
     </div>
+    <a href="" data-doc="<%= blogs._id %>" class="delete">Delete Blog</a>
 
     <%- include('./partials/footer.ejs') %>
+
+    <script>
+        const deleteProcess = document.querySelector('a.delete');
+        // console.log(deleteProcess);
+        deleteProcess.addEventListener('click', (e) => {
+            const endpoint = `/blogs/${deleteProcess.dataset.doc}`;
+            console.log(endpoint);
+            fetch(endpoint, {
+                method: 'DELETE',
+            })
+            .then((response) => {
+                response.json()
+                .then((data) => {
+                    window.location.href = data.redirect
+                })
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        });
+        
+    </script>
 </body>
 </html>
