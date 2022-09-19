@@ -11,6 +11,10 @@
         </div>
     </div>
     <a href="" data-doc="<%= blogs._id %>" class="delete">Delete Blog</a>
+    <a href="/blogsdelete/<%= blogs._id %>"  
+        class="delete">
+            trialDelete Blog using get method
+    </a>
 
     <%- include('./partials/footer.ejs') %>
 
