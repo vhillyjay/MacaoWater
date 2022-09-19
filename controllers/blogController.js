@@ -60,6 +60,16 @@ const blog_delete_trial_get = (req, res) => {
         });
 };
 
+const blog_update_get = (req, res) => {
+    const id = req.params.id;
+    Blog.findById(id)
+        .then((result) => {
+            res.render('blogs/update', { title: id, blogs: result });
+        })
+        .catch();
+    // res.render('blogs/update', { title: 'Update' });
+};
+
 module.exports = {
     blog_index,
     blog_details,
@@ -67,4 +77,5 @@ module.exports = {
     blog_create_post,
     blog_delete,
     blog_delete_trial_get,
+    blog_update_get,
 };
