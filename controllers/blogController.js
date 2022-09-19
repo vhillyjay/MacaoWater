@@ -27,6 +27,7 @@ const blog_create_get = (req, res) => {
 
 const blog_create_post = (req, res) => {
     const blog = new Blog(req.body);
+    console.log(req.body);
     blog.save()
         .then((result) => {
             res.redirect('/blogs');
@@ -70,6 +71,24 @@ const blog_update_get = (req, res) => {
     // res.render('blogs/update', { title: 'Update' });
 };
 
+const blog_update_post = (req, res, next) => {
+    const id = req.params.id;
+    const updatedBlog = new Blog({
+        title: req.body.title,
+        snippet: req.body.snippet,
+        body: req.body.blogBody,
+    });
+    console.log(updatedBlog, id);
+    updatedBlog.updateOne({_id: req.params.id}, updatedBlog)
+    // updatedBlog.save()
+    .then((result) => {
+        res.redirect('/blogs');
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+};
+
 module.exports = {
     blog_index,
     blog_details,
@@ -78,4 +97,5 @@ module.exports = {
     blog_delete,
     blog_delete_trial_get,
     blog_update_get,
+    blog_update_post,
 };
