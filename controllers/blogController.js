@@ -74,15 +74,19 @@ const blog_update_get = (req, res) => {
 const blog_update_post = (req, res, next) => {
     const id = req.params.id;
     const updatedBlog = new Blog({
+        _id: req.params.id,
         title: req.body.title,
         snippet: req.body.snippet,
         body: req.body.blogBody,
     });
     console.log(updatedBlog, id);
-    updatedBlog.updateOne({_id: req.params.id}, updatedBlog)
+    Blog.updateOne({_id: req.params.id}, updatedBlog)
     // updatedBlog.save()
     .then((result) => {
         res.redirect('/blogs');
+        // res.status(200).json({
+        //     message: 'update success'
+        // });
     })
     .catch((err) => {
         console.log(err);
