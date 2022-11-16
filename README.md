@@ -2,6 +2,8 @@
  node js backend practice
 ## npm install
    - run npm install on your terminal if node_modules is not yet in your local
+## nodemon app
+   - run this command on your terminal to run the application on your end
 ## MongoDB
    1. Create MongoDB acc.
    2. On the Home page, click New Project. Name it. Click Create Project.
